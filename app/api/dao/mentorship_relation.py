@@ -139,7 +139,7 @@ class MentorshipRelationDAO:
             if isValidState(state):
                 all_relations=list(filter(lambda rel: (rel.state.name == state), all_relations))
             else:
-                return [], 400
+                return messages.RELATION_STATE_FILTER_IS_INVALID, 400
 
         # add extra field for api response
         for relation in all_relations:

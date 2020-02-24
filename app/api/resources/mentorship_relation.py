@@ -129,6 +129,7 @@ class GetAllMyMentorshipRelation(Resource):
         messages.AUTHORISATION_TOKEN_IS_MISSING
         )
     )
+    @mentorship_relation_ns.response(400, '%s'%messages.RELATION_STATE_FILTER_IS_INVALID)
     @mentorship_relation_ns.marshal_list_with(mentorship_request_response_body)
     def get(cls):
         """
